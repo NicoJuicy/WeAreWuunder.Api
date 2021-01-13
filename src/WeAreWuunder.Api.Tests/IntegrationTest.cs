@@ -36,12 +36,15 @@ namespace WeAreWuunder.Api.Tests
                 .RuleFor(a => a.Givenname, f => f.Name.FirstName())
                 .RuleFor(a => a.FamilyName, f => f.Name.LastName());
 
+            var lorem = new Bogus.DataSets.Lorem(locale: "en");
+
             var generateShipment = new Bogus.Faker<Requests.CreateShipmentRequest>()
-                .RuleFor(s => s.Description, f => f.Random.String())
+                .RuleFor(s => s.Description, f => lorem.Sentence(1))
                 .RuleFor(s => s.DeliveryAddress, f => address.Generate())
                 .RuleFor(s => s.PickupAddress, f => address.Generate())
-                .RuleFor(s => s.PreferredServiceLevel, f => f.PickRandom(Models.Constants.ShippingServiceLevels))
+                .RuleFor(s => s.PreferredServiceLevel, f => Models.Constants.ShippingServiceLevels.Where(dl => dl.Contains("dpd") && dl.Contains("cheap")).FirstOrDefault()) // f.PickRandom(Models.Constants.ShippingServiceLevels)
                 .RuleFor(s => s.Kind, "package")
+                .RuleFor(s => s.Value, f => f.Random.Int(1,50))
                 .RuleFor(s => s.NumberOfItems, f => 1)
                 .RuleFor(s => s.Length, f => 35)
                 .RuleFor(s => s.Width, f => 35)
