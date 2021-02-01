@@ -8,7 +8,7 @@ Todo when this api is final
 
 - Create the client:
 
-      var client = new WeAreWuunderApiClient(Models.Environment.Production, "{your-api-key}");
+      var client = new WeAreWuunderApiClient(Environment.Production, "{your-api-key}");
 
 - Create the shipment
 
