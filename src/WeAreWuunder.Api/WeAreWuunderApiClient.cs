@@ -34,7 +34,7 @@ namespace WeAreWuunder.Api
             return apiKey;
         }
 
-       
+
         public async Task<CreateShipmentResponse> CreateShipment(CreateShipmentRequest request)
         {
 
@@ -53,23 +53,21 @@ namespace WeAreWuunder.Api
             {
                 if (((int)ex.StatusCode) == 422)
                 {
-
-                    var errorModel = await ex.GetContentAsAsync<ErrorModel>();
-                    throw new WeAreWuunderApiException("Shipment was invalid. " + errorModel.ToString());
+                    var errors = WuunderApiHelpers.FlattenErrors(ex.Content);
+                    throw new WeAreWuunderApiException(String.Join("\n",errors));
                 }
-                if((int)ex.StatusCode >= 500)
+                if ((int)ex.StatusCode >= 500)
                 {
-                    var errorModel = await ex.GetContentAsAsync<ErrorModel>();
-                    throw new WeAreWuunderApiException("Try again later. "  + errorModel.ToString());
+                    throw new WeAreWuunderApiException("Try again later. ");
                 }
                 throw;
             }
             return response;
         }
 
-        public async Task<List<CreateShipmentResponse>> GetShipments()
-        {
-            return await apiClient.GetShipments();
-        }
+        //public async Task<List<CreateShipmentResponse>> GetShipments()
+        //{
+        //    return await apiClient.GetShipments();
+        //}
     }
 }

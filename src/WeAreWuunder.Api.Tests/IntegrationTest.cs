@@ -57,7 +57,7 @@ namespace WeAreWuunder.Api.Tests
                 .RuleFor(s => s.Description, f => lorem.Sentence(1))
                 .RuleFor(s => s.DeliveryAddress, f => address.Generate())
                 .RuleFor(s => s.PickupAddress, f => address.Generate())
-                .RuleFor(s => s.PreferredServiceLevel, f => Models.Constants.ShippingServiceLevels.Where(dl => dl.Contains("dpd_be") && dl.Contains("cheap")).FirstOrDefault()) // f.PickRandom(Models.Constants.ShippingServiceLevels)
+                .RuleFor(s => s.PreferredServiceLevel, f => Models.Constants.ShippingServiceLevels.Where(dl => dl.Contains("dpd") && dl.Contains("cheap")).FirstOrDefault()) // f.PickRandom(Models.Constants.ShippingServiceLevels)
                 .RuleFor(s => s.Kind, "package")
                 .RuleFor(s => s.Value, f => f.Random.Int(1,50))
                 .RuleFor(s => s.OrderLines, f => orderlines)
