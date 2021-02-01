@@ -1,6 +1,6 @@
 # WeAreWuunder.Api
 
-## Installation
+## Nuget
 
 Todo when this api is final
 
