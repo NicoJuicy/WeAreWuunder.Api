@@ -59,7 +59,7 @@ namespace WeAreWuunder.Api.Tests
                 .RuleFor(s => s.Kind, "package")
                 .RuleFor(s => s.Value, f => f.Random.Int(1, 50))
                 .RuleFor(s => s.OrderLines, f => orderlines)
-                .RuleFor(s => s.NumberOfItems, f => orderlines.Sum(dl => dl.Quantity))
+                .RuleFor(s => s.NumberOfItems, f => 1)
                 .RuleFor(s => s.Length, f => 35)
                 .RuleFor(s => s.Width, f => 35)
                 .RuleFor(s => s.Height, f => 35)
