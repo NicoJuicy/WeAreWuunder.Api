@@ -13,7 +13,7 @@ namespace WeAreWuunder.Api.Models
         /// The Harmonization Code for this good and required for shipping to non-EU countries(Brexit)​
         /// </summary>
         [JsonProperty("hs_code")]
-        public int HsCode { get; set; }
+        public string HsCode { get; set; }
 
         /// <summary>
         /// ISO-2 country code, for example “NL” or “BE” and required for shipping to non-EU countries (Brexit)​

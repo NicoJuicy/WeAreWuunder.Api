@@ -58,7 +58,6 @@ namespace WeAreWuunder.Api.Requests
         [JsonProperty("delivery_address")]
         public Models.Address DeliveryAddress { get; set; }
 
-        [Required]
         [JsonProperty("pickup_address")]
         public Models.Address PickupAddress { get; set; }
 

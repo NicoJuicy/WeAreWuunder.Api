@@ -75,7 +75,7 @@ namespace WeAreWuunder.Api.Models
         /// <summary>
         /// VAT number including country code required for shipping to non-EU countries (Brexit)
         /// </summary>
-        [JsonProperty("vat_number")]
+        [JsonProperty("vat")]
         public string VatNumber { get; set; }
 
     }

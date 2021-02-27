@@ -37,7 +37,7 @@ namespace WeAreWuunder.Api.Validators
             RuleFor(s => s.Length).GreaterThan(0);
             RuleFor(s => s.Width).GreaterThan(0);
             RuleFor(s => s.Height).GreaterThan(0);
-            RuleFor(s => s.Weight).GreaterThan(0);
+            RuleFor(s => s.Weight).GreaterThan(0);  
 
         }
 
