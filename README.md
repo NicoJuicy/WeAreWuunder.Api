@@ -3,7 +3,6 @@
 ## Usage
 
 - Install the [nuget package: WeAreWuunder.Api](https://www.nuget.org/packages/WeAreWuunder.Api)
-- 
 
 - Create the client:
 
